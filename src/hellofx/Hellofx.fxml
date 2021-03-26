@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hellofx.Controller">
+   <children>
+      <TextField fx:id="numero1Caja" alignment="TOP_LEFT" layoutX="100.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#getNumero1" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="150.0" left="70.0" />
+         </StackPane.margin>
+      </TextField>
+      <TextField fx:id="numero2Caja" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#getNumero2" prefWidth="150.0" StackPane.alignment="CENTER_RIGHT">
+         <StackPane.margin>
+            <Insets bottom="150.0" right="100.0" />
+         </StackPane.margin>
+      </TextField>
+      <Label text="resultado" StackPane.alignment="BOTTOM_LEFT">
+         <StackPane.margin>
+            <Insets bottom="50.0" left="220.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="numero2" text="numero2">
+         <StackPane.margin>
+            <Insets bottom="200.0" left="150.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="etiquetaNumero1" text="numero1" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="200.0" left="70.0" />
+         </StackPane.margin>
+      </Label>
+      <Button fx:id="resto" mnemonicParsing="false" onAction="#calculoResto" text="RESTO" textFill="#b02bed" StackPane.alignment="CENTER_RIGHT">
+         <StackPane.margin>
+            <Insets right="100.0" />
+         </StackPane.margin>
+      </Button>
+      <TextField fx:id="retorno" alignment="BOTTOM_CENTER" editable="false" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#error" prefWidth="150.0" StackPane.alignment="BOTTOM_CENTER">
+         <StackPane.margin>
+            <Insets bottom="50.0" left="120.0" />
+         </StackPane.margin>
+      </TextField>
+      <Button fx:id="elevar" mnemonicParsing="false" onAction="#calculoElevar" text="ELEVAR" StackPane.alignment="CENTER_RIGHT">
+         <StackPane.margin>
+            <Insets right="220.0" />
+         </StackPane.margin>
+      </Button>
+      <Button fx:id="porcentaje" mnemonicParsing="false" onAction="#calculoPorcentaje" text="PORCENTAJE" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets left="180.0" />
+         </StackPane.margin>
+      </Button>
+      <Button fx:id="sumar" mnemonicParsing="false" onAction="#calculoSumar" text="SUMAR" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets left="70.0" />
+         </StackPane.margin>
+      </Button>
+      <Button fx:id="limpiar" mnemonicParsing="false" onAction="#hacerLimpieza" text="LIMPIAR" StackPane.alignment="BOTTOM_RIGHT">
+         <StackPane.margin>
+            <Insets bottom="50.0" right="50.0" />
+         </StackPane.margin>
+      </Button>
+      <TextArea fx:id="texto" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#resumenOperaciones" opacity="0.48" prefHeight="180.0" prefWidth="200.0" StackPane.alignment="BOTTOM_LEFT" />
+   </children>
+</StackPane>
