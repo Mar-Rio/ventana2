@@ -1,5 +1,6 @@
 package hellofx;
 
+import static java.awt.Color.yellow;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,6 +8,7 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 
 public class Controller {
@@ -22,21 +24,13 @@ public class Controller {
     @FXML
     private Label etiquetaNumero1;
     @FXML
-    private Button resto;
-    @FXML
-    private Button elevar;
-    @FXML
-    private Button porcentaje;
-    @FXML
-    private Button sumar;
-    @FXML
-    private Button limpiar;
-    @FXML
     private TextField numero1Caja;
-    @FXML
     private TextArea texto;
-
     @FXML
+    private Button calcular;
+    @FXML
+    private ToggleGroup pesos;
+
     private void error() {
         retorno.setText("No es posible escribir aqui.");
 
@@ -46,7 +40,7 @@ public class Controller {
     private double getNumero1() {
         double numero = 0;
         try {
-            numero = Double.parseDouble(numero1Caja.getText());
+            numero = Double.parseDouble(numero1Caja.getText()) / 100;
         } catch (NumberFormatException e) {
             retorno.setText("DATOS NO VALIDOS");
         }
@@ -65,45 +59,18 @@ public class Controller {
     }
 
     @FXML
-    private void calculoResto(ActionEvent event) {
-        retorno.setText(Double.toString(getNumero1() - getNumero2()));
-        texto.appendText("Operacion " + contador++ + ", "
-                + ((Button) event.getSource()).getText() + " " + getNumero1()
-                + " - " + getNumero2() + " = " + retorno.getText() + "\n");
-    }
-
-    @FXML
-    private void calculoElevar() {
-        double resultado = Math.pow(getNumero1(), getNumero2());
-        retorno.setText(Double.toString(resultado));
-    }
-
-    @FXML
-    private void calculoPorcentaje(ActionEvent event) {
-        double numero2 = getNumero2();
-        if (numero2 != 0) {
-            double resultado = (getNumero1() / getNumero2()) * 100;
-            retorno.setText(Double.toString(resultado));
-        } else {
-            retorno.setText("ERROR");
+    private void calculo() {
+        try {
+            double resultado = getNumero2() / Math.pow(getNumero1(), 2);
+            retorno.setText(String.format("%.2f", resultado));
+            cambioColor(resultado);
+        } catch (Exception e) {
+            System.out.println("Error Aritmetico.");
         }
     }
-
-    @FXML
-    private void calculoSumar(ActionEvent event) {
-        double resultado = getNumero1() + getNumero2();
-        retorno.setText(Double.toString(resultado));
+    private void cambioColor(double resultado) {
+        if(resultado > 30 || resultado < 18.4) {
+            retorno.setStyle("-fx-background-color: yellow");
+        }
     }
-
-    @FXML
-    private void hacerLimpieza(ActionEvent event) {
-        numero1Caja.clear();
-        numero2Caja.clear();
-        retorno.clear();
-    }
-
-    @FXML
-    private void resumenOperaciones(MouseEvent event) {
-    }
-
 }
